@@ -1,0 +1,27 @@
+name: Deploy Azure Storage Account
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
+  workflow_dispatch:  # Allows manual triggering from the GitHub Actions UI
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Azure CLI
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Deploy ARM template
+      run: |
+        az deployment group create \
+          --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+          --template-file azuredeploy.json \
+          --parameters storageAccountName=${{ secrets.STORAGE_ACCOUNT_NAME }} location='East US' sku='Standard_LRS'
