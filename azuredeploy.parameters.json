@@ -5,9 +5,7 @@
         "storageAccountName": {
             "value": "rgstorageaccount21"
         },
-        //"location": {
-        //    "value": "East US"
-        //},
+        
         "sku": {
             "value": "Standard_LRS"
         }
