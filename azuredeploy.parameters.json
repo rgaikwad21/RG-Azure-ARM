@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageAccountName": {
-            "value": "rgstorageaccount11" // TODO: Fill in parameter value
+            "value": "rgstorageaccount21"
         },
         "location": {
             "value": "East US"
