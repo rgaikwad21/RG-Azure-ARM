@@ -3,15 +3,15 @@
     "contentVersion": "1.0.0.0",
     "resources": [
       {
-        "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2021-04-01",
         "name": "[parameters('storageAccountName')]",
-        "location": "[parameters('location')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2023-04-01",
+        //"location": "[parameters('location')]",
+          "location": "[resourceGroup().location]", 
+          "kind": "StorageV2",
         "sku": {
           "name": "[parameters('sku')]"
         },
-        "kind": "StorageV2",
-        "properties": {}
       }
     ],
     "parameters": {
