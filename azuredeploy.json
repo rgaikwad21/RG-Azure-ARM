@@ -3,15 +3,16 @@
     "contentVersion": "1.0.0.0",
     "resources": [
       {
-            "name": "[parameters('storageAccountName')]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2023-04-01",
-            "location": "[resourceGroup().location]",
-            "kind": "StorageV2",
-            "sku": {
-                "name": "[parameters('sku')]"
-            }
+        "name": "[parameters('storageAccountName')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2023-04-01",
+        "location": "[parameters('location')]",
+        //  "location": "resourceGroup().[parameters('location')]", 
+          "kind": "StorageV2",
+        "sku": {
+          "name": "[parameters('sku')]"
         }
+      }
     ],
     "parameters": {
       "storageAccountName": {
@@ -21,6 +22,14 @@
         }
       },
     
+      "location": {
+        "type": "string",
+        "defaultValue": "East US",
+        "metadata": {
+          "description": "Location for the storage account"
+        }
+      },
+
       "sku": {
         "type": "string",
         "defaultValue": "Standard_LRS",

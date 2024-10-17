@@ -3,7 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageAccountName": {
-            "value": "rgstorageaccount21"
+            "value": "rgstorageaccount17oct"
+        },
+        "location": {
+            "value": "East US"
         },
         
         "sku": {
